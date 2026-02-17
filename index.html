@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sujal Kava | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="bg-wrapper">
+    <div class="gradient-bg"></div>
+    <div class="particles"></div>
+</div>
+
+<div class="scroll-progress-bar"></div>
+
+<nav class="navbar">
+    <div class="logo">Sujal Kava</div>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero-advanced">
+    <div class="hero-left">
+        <h1>
+            Building Intelligent Systems
+            <span class="gradient-text">with Python & AI</span>
+        </h1>
+        <p>
+            I design scalable backend systems, AI-driven applications,
+            and interactive web experiences.
+        </p>
+        <div class="hero-buttons">
+            <a href="SujalResume.pdf" download class="btn">Download Resume</a>
+            <a href="#projects" class="btn-outline">
+                View Projects
+            </a>
+        </div>
+    </div>
+
+    <div class="hero-right">
+        <div class="glass-profile">
+            <h3>Sujal Kava</h3>
+            <p>MCA Student | AI & Backend Developer</p>
+            <div class="status-dot"></div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="card fade-in">
+    <h2>About Me</h2>
+    <p>
+        Python Developer experienced in Django, Flask, REST APIs, MongoDB, and AI/ML projects.
+        Passionate about building intelligent systems and interactive web experiences.
+    </p>
+</section>
+
+<section id="skills" class="card fade-in">
+    <h2>Technical Skills</h2>
+
+    <div class="skill">
+        <p>Python <span>90%</span></p>
+        <div class="progress">
+            <div class="progress-bar" data-width="90%"></div>
+        </div>
+    </div>
+
+    <div class="skill">
+        <p>Django / Flask <span>85%</span></p>
+        <div class="progress">
+            <div class="progress-bar" data-width="85%"></div>
+        </div>
+    </div>
+
+    <div class="skill">
+        <p>AI / ML (TensorFlow, PyTorch) <span>75%</span></p>
+        <div class="progress">
+            <div class="progress-bar" data-width="75%"></div>
+        </div>
+    </div>
+
+    <div class="skill">
+        <p>MongoDB / SQL <span>80%</span></p>
+        <div class="progress">
+            <div class="progress-bar" data-width="80%"></div>
+        </div>
+    </div>
+
+    <div class="skill">
+        <p>Frontend (HTML, CSS, JS) <span>70%</span></p>
+        <div class="progress">
+            <div class="progress-bar" data-width="70%"></div>
+        </div>
+    </div>
+</section>
+
+<section id="blog" class="card fade-in">
+    <h2>Blog</h2>
+
+    <div class="blog-card">
+        <h3>Offline Wikipedia System</h3>
+        <p>Offline-first architecture built using Python and system optimization techniques.</p>
+    </div>
+
+    <div class="blog-card">
+        <h3>ShoeSculpt – Online Shoe Rental Platform</h3>
+        <p>Dual business model e-commerce backend built using Django.</p>
+    </div>
+</section>
+
+<section id="projects" class="projects-advanced">
+    <h2>Featured Projects</h2>
+
+    <div class="project-grid">
+        <div class="project-item">
+            <div class="project-content">
+                <h3>Offline Wikipedia</h3>
+                <p>Offline-first educational system built using Python backend architecture.</p>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-content">
+                <h3>AI 3D Solar System</h3>
+                <p>Gesture-controlled interactive 3D system using AI and Three.js.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="timeline">
+    <h2>Education</h2>
+
+    <div class="timeline-item">
+        <h3>MCA – Lok Jagruti University</h3>
+        <p>2024 – Present</p>
+    </div>
+
+    <div class="timeline-item">
+        <h3>BCA – MKBU University</h3>
+        <p>2021 – 2024</p>
+    </div>
+</section>
+
+<section id="contact" class="card fade-in" style="margin-top: 60px;">
+    <h2>Contact</h2>
+    <p>Email: kavasujal64@gmail.com</p>
+    <p>Phone: +91 9924601848</p>
+    <p>Ahmedabad, Gujarat</p>
+</section>
+
+<footer>
+    © 2026 Sujal Kava | Built with HTML/CSS
+</footer>
+
+<script>
+    window.onscroll = function() {
+        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        document.querySelector(".scroll-progress-bar").style.width = scrolled + "%";
+    };
+
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOnScroll = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('appear');
+        });
+    }, { threshold: 0.2 });
+
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+    });
+
+    const skillSection = document.querySelector("#skills");
+    const bars = document.querySelectorAll(".progress-bar");
+
+    const skillObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                bars.forEach(bar => {
+                    bar.style.width = bar.getAttribute("data-width");
+                    bar.classList.add("active-glow");
+                });
+            }
+        });
+    }, { threshold: 0.4 });
+
+    skillObserver.observe(skillSection);
+</script>
+
+</body>
+</html>
